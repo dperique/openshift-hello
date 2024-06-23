@@ -1,0 +1,15 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: hello-world
+spec:
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/dperique/openshift-hello.git'
+  strategy:
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'hello-world:latest'
